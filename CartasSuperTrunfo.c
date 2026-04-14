@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 // Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das cartas
-// Objetivo: No nível novato você deve criar as cartas representando as cidades utilizando scanf para entrada de dados e printf para exibir as informações.
+// Tema 1 - Nível Aventureiro
+// Objetivo: Calcular e exibir a Densidade Populacional e o PIB per Capita.
 
 int main() {
   // Área para definição das variáveis para armazenar as propriedades das cidades
@@ -13,6 +13,8 @@ int main() {
     float area1;
     float pib1;
     int pTuristicos1;
+    float densidade1; // nova variável
+    float pibPerCapita1; // nova variável
 
     char estado2;
     char codigo2[4];
@@ -21,6 +23,9 @@ int main() {
     float area2;
     float pib2;
     int pTuristicos2;
+    float densidade2; // nova variável
+    float pibPerCapita2; // nova variável
+
   // Área para entrada de dados
 
     printf("Cadastro da carta 1\n");
@@ -73,6 +78,16 @@ int main() {
 
     printf("\n");
 
+    // área de cálculos
+    // usando (float) antes da população para garantir que o C trate a divisão com casas decimais corretamente
+    // multiplicando o PIB por 1 bilhão para que o PIB per capita saia em reais, e não em "bilhões de reais por pessoa"
+
+    densidade1 = (float)populacao1 / area1;
+    pibPerCapita1 = (pib1 * 1000000000.0) / (float)populacao1;
+
+    densidade2 = (float)populacao2 / area2;
+    pibPerCapita2 = (pib2 * 1000000000.0) / (float)populacao2;
+
   // Área para exibição dos dados da cidade
 
     printf("DADOS DAS CARTAS CADASTRADAS\n");
@@ -85,6 +100,8 @@ int main() {
     printf("Área: %.2f km²\n", area1);
     printf("PIB: %.2f bilhões de reais\n", pib1);
     printf("Número de pontos turísticos: %d\n", pTuristicos1);
+    printf("Densidade populacional: %.2f hab/km²\n", densidade1);
+    printf("PIB per Capita: %.2f reais\n", pibPerCapita1);
 
     printf("\n");
 
@@ -96,6 +113,8 @@ int main() {
     printf("Área: %.2f km²\n", area2);
     printf("PIB: %.2f bilhões de reais\n", pib2);
     printf("Número de pontos turísticos: %d\n", pTuristicos2);
+    printf("Densidade populacional: %.2f hab/km²\n", densidade2);
+    printf("PIB per Capita: %.2f reais\n", pibPerCapita2);
 
 return 0;
 } 
