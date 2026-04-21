@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 // Desafio Super Trunfo - Países
-// Tema 1 - Nível Aventureiro
-// Objetivo: Calcular e exibir a Densidade Populacional e o PIB per Capita.
+// Tema 3 - Nível Novato
+// Objetivo: Comparar as cartas do Super Trunfo.
 
 int main() {
   // Área para definição das variáveis para armazenar as propriedades das cidades
@@ -42,7 +42,7 @@ int main() {
     scanf(" %[^\n]", cidade1); // lê a string incluindo espaços
 
     printf("População: ");
-    scanf(" %d", &populacao1);
+    scanf(" %lu", &populacao1);
 
     printf("Área (em km²): ");
     scanf("%f", &area1);
@@ -67,7 +67,7 @@ int main() {
     scanf(" %[^\n]", cidade2); // lê a string incluindo espaços
 
     printf("População: ");
-    scanf(" %d", &populacao2);
+    scanf(" %lu", &populacao2);
 
     printf("Área (em km²): ");
     scanf("%f", &area2);
@@ -104,7 +104,7 @@ int main() {
     printf("Estado: %c\n", estado1);
     printf("Código: %s\n", codigo1);
     printf("Nome da cidade: %s\n", cidade1);
-    printf("População: %d\n", populacao1);
+    printf("População: %lu\n", populacao1);
     printf("Área: %.2f km²\n", area1);
     printf("PIB: %.2f bilhões de reais\n", pib1);
     printf("Número de pontos turísticos: %d\n", pTuristicos1);
@@ -117,25 +117,29 @@ int main() {
     printf("Estado: %c\n", estado2);
     printf("Código: %s\n", codigo2);
     printf("Nome da cidade: %s\n", cidade2);
-    printf("População: %d\n", populacao2);
+    printf("População: %lu\n", populacao2);
     printf("Área: %.2f km²\n", area2);
     printf("PIB: %.2f bilhões de reais\n", pib2);
     printf("Número de pontos turísticos: %d\n", pTuristicos2);
     printf("Densidade populacional: %.2f hab/km²\n", densidade2);
     printf("PIB per Capita: %.2f reais\n", pibPerCapita2);
 
-    // comparação
+    // comparação de atributos (o atributo escolhido foi o PIB)
 
-    printf("*** Comparação de cartas ***");
-    printf("População: Carta 1 venceu (%d)\n", populacao1 > populacao2);
-    printf("Área: Carta 1 venceu (%d)\n", area1 > area2);
-    printf("PIB: Carta 1 venceu (%d)\n", pib1 > pib2);
-    printf("Pontos Turísticos: Carta 1 venceu (%d)\n", pTuristicos1 > pTuristicos2);
-    printf("Densidade Populacional: Carta 1 venceu (%d)\n", densidade1 < densidade2); // a menor densidade vence
-    printf("PIB per Capita: Carta 1 venceu (%d)\n", pibPerCapita1 > pibPerCapita2);
-    printf("Super Poder: Carta 1 venceu (%d)\n", superPoder1 > superPoder2);
+    printf("*** Comparação de Cartas! - Atributo: PIB ***\n");
+    printf("Carta 1 - %s: %.2f bilhões de reais\n", cidade1, pib1);
+    printf("Carta 2 - %s: %.2f bilhões de reais\n", cidade2, pib2);
 
-    // obs: só vi o vídeo instruindo a criar uma variável para o resultado depois de concluir a atividade 😢
+    //comparação com if e else
+
+    if (pib1 > pib2) {
+      printf("Carta 1 (%s) venceu!\n", cidade1);
+      }  else if (pib1 < pib2) {
+      printf("Carta 2 (%s) venceu!\n", cidade2);
+    } else {
+      printf("Empate! Ambas as cidades têm o mesmo PIB.\n");
+    }
+
 
 return 0;
 } 
